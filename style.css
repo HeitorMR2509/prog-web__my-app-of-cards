@@ -1,0 +1,211 @@
+/* || CSS Modern Normalize */
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+body {
+  margin: 3rem 0 0 0;
+  width: 100%;
+  height: 100vh;
+}
+
+hr {
+  height: 0;
+  color: inherit;
+}
+
+abbr[title] {
+  text-decoration: underline dotted;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo,
+    monospace;
+  font-size: 1em;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+table {
+  text-indent: 0;
+  border-color: inherit;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+[type="button"],
+[type="reset"],
+[type="submit"],
+button {
+  appearance: button;
+  -webkit-appearance: button;
+}
+
+::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+legend {
+  padding: 0;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type="search"] {
+  appearance: textfield;
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+summary {
+  display: list-item;
+}
+
+/* || Meu código */
+
+.o-box {
+  --size: 200px;
+  width: var(--size);
+  height: var(--size);
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.o-box:hover {
+  filter: brightness(0.5);
+}
+
+.c-cards {
+  --size: 400px;
+  width: var(--size);
+  height: calc(var(--size) / 1.5);
+  position: relative;
+  display: inline-block;
+}
+
+.c-cards .o-box {
+  --xT: -50%;
+  --zI: 2;
+  --rTT: 0deg;
+  position: absolute;
+  background-image: url("https://picsum.photos/200/200.webp");
+  top: 50%;
+  left: 50%;
+  transform: translate(var(--xT), -50%) rotateZ(var(--rTT));
+  z-index: var(--zI);
+  transition: transform 0.3s ease-in-out;
+}
+
+.c-cards .o-box:first-child {
+  --zI: 3;
+}
+
+.c-cards .o-box:last-child {
+  --zI: 1;
+}
+
+.c-cards .o-box:last-child:hover,
+.c-cards .o-box:hover ~ .o-box:last-child {
+  --xT: -20%;
+  --rTT: 15deg;
+}
+
+.c-cards .o-box:first-child:hover,
+.c-cards .o-box:first-child:has(~ .o-box:hover) {
+  --xT: -80%;
+  --rTT: -15deg;
+}
+
+.c-cardCreator {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+  z-index: 5;
+  background-color: white;;
+}
+
+.c-cardsDiv {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  place-items: center;
+}
